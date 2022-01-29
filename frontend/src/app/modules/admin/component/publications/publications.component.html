@@ -1,0 +1,24 @@
+<p class="title">Publications :
+    <button mat-raised-button class="card-button" (click)="popup()" color="primary"><span>+</span>CREATE</button>
+    <button mat-raised-button class="card-button" (click)="refresh()" color="primary">
+        <mat-icon>refresh</mat-icon>REFRESH
+    </button>
+</p>
+<div class="credits-card confirmed">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>View</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let publication of publications">
+                <td>{{publication.title}}</td>
+                <td>
+                <a href="{{publication.link}}"> <button mat-raised-button class="card-button" color="primary">VIEW</button></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

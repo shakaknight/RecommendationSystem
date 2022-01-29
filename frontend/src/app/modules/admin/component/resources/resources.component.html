@@ -1,0 +1,25 @@
+<p class="title">Resources :
+    <button mat-raised-button class="card-button" (click)="popup()" color="primary"><span>+</span>CREATE</button>
+    <button mat-raised-button class="card-button" (click)="refresh()" color="primary"><mat-icon>refresh</mat-icon>REFRESH</button>
+</p>
+<div class="credits-card confirmed" >
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>No. of pages</th>
+                <th>View / Download</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let resource of resources">
+                <td>{{resource.title}}</td>
+                <td>{{resource.pages}}</td>
+                <td>
+                    <a href="{{resource.link}}"><button mat-raised-button class="card-button" color="primary">VIEW</button></a>
+                    <a href="{{resource.link}}"><button mat-raised-button class="card-button" color="primary">DOWNLOAD</button></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

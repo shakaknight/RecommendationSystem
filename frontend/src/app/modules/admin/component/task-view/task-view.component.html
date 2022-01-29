@@ -1,0 +1,45 @@
+<div class="">
+
+    <div class="task-container">
+        <h1 class="title has-text-primary">
+            Tasks
+        </h1>
+        <div class="task" *ngFor="let task of tasks" routerLinkActive="is-active" (click)="onTaskClick(task)"
+            [ngClass]="{ 'completed': task.completed }">
+            <div>
+                <div class="task-text">
+                    <a class="">
+                        <p>{{ task.title }}</p>
+                    </a>
+                </div>
+                <button mat-raised-button class="button" color="primary">
+                    <div class="icon">
+                        <i class="fas fa-edit"></i>
+                    </div>
+                </button>
+
+                <button mat-raised-button color="primary" (click)="onDeleteTaskClick(task._id)" class="button is-danger"
+                    style="margin-left: 10px;">
+                    <div class="icon">
+                        <i class="fas fa-trash"></i>
+                    </div>
+                </button>
+            </div>
+        </div>
+        <h3 class="empty-state-text" *ngIf="tasks.length === 0">There are no tasks here! Click the add button to
+            create
+            a new task.</h3>
+        <div class="button new-task is-primary has-text-white">
+            <button class="lower-button" mat-raised-button color="primary" (click)="popup()">+ New Task</button>
+            <button class="lower-button" mat-raised-button color="primary" aria-haspopup="true"
+                aria-controls="dropdown-menu4" (click)="refresh()">
+                <mat-icon>refresh</mat-icon>
+                Refresh
+            </button>
+        </div>
+    </div>
+</div>
+
+
+
+

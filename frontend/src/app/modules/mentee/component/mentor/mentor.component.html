@@ -1,0 +1,22 @@
+<p class="title">Your Mentor: 
+    <button mat-raised-button class="card-button" color="primary">REFRESH</button>
+</p>
+<div class="credits-card confirmed">
+    <div layout="row" class="requested md-padding" *ngFor="let mentor of mentors" layout-wrap>
+        <mat-card class="example-card">
+            <mat-card-header>
+                <mat-card-title>{{ mentor.email }}</mat-card-title>
+                <mat-card-subtitle>{{ mentor.user_type }}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-actions>
+                <button mat-raised-button class="card-button" 
+                    color="primary">CHAT</button>
+                <button mat-raised-button class="card-button"
+                    color="primary">GET DETAILS</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>
+<p class="title">Your Documents :
+    <button mat-raised-button class="card-button" color="primary">REFRESH</button>
+</p>

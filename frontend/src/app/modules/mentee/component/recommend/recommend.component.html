@@ -1,0 +1,30 @@
+<div class="recommend-css">
+<h3 class="title">Choose your area of interest for mentor: </h3>
+<div>
+<select #cricket (change)="update($event)" class="select-css">
+    <option value="default"></option>
+    <option *ngFor="let player of players" [value]="player" class="option-css">
+        {{player}}
+    </option>
+</select>
+<button mat-raised-button class="button-color"  (click)="predicter()">SUBMIT</button>
+</div>
+<div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Info</th> 
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let result of results">
+                <td>{{ result.id }}</td>
+                <td>{{ result.name }}</td>
+                <td><button mat-raised-button class="button-css" (click) = "popup(result)"><mat-icon class="button-color plus-css" aria-hidden="false" aria-label="Example home icon">add</mat-icon></button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</div>

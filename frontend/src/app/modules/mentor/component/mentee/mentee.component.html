@@ -1,0 +1,35 @@
+<p class="title">Request
+    <button mat-raised-button class="card-button" (click)="refresh()" color="primary">REFRESH</button>
+</p>
+<div class="credits-card confirmed">
+    <div layout="row" class="requested md-padding" *ngFor="let mentee of mentees" layout-wrap>
+        <mat-card class="example-card">
+            <mat-card-header>
+                <mat-card-title>{{ mentee.email }}</mat-card-title>
+                <mat-card-subtitle>{{ mentee.user_type }}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-actions>
+                <button mat-raised-button class="card-button" (click)="accept(mentee.email)" color="primary">ACCEPT</button>
+                <button mat-raised-button class="card-button" (click)="delete(mentee.email)" color="primary">REJECT</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>
+<p class="title"> Your Mentees.
+    <button mat-raised-button class="card-button" (click)="refresh()" color="primary">REFRESH</button>
+</p>
+<div class="credits-card confirmed">
+    <div layout="row" class="requested md-padding" *ngFor="let mentee of accepted" layout-wrap>
+        <mat-card class="example-card">
+            <mat-card-header>
+                <mat-card-title>{{ mentee.email }}</mat-card-title>
+                <mat-card-subtitle>{{ mentee.user_type }}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-actions>
+                <button mat-raised-button class="card-button" (click)="accept(mentee.email)"
+                    color="primary">REQUEST</button>
+                <button mat-raised-button class="card-button" (click)="delete(mentee.email)" color="primary">REJECT</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>

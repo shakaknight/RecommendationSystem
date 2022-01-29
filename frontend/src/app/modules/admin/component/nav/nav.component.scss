@@ -1,0 +1,36 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 220px;
+  font-family: Georgia, serif !important;
+  // overflow: hidden !important;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.nav-top {
+  color: #27d7a1;
+}
+.nav-link {
+  margin: 30px 0px;
+}
+.nav-title {
+  margin: 0px 10px;
+  font-weight: 900;
+}
+
+.logo {
+  width: 195px;
+}
+.nav-title {
+  overflow: auto;
+}

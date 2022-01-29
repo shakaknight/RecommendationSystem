@@ -1,0 +1,62 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+    <img class="logo" src="../../../../../assets/loogo.png">
+    <!-- <mat-toolbar>Menu</mat-toolbar> -->
+    <mat-nav-list>
+      <a class="nav-link" mat-list-item routerLink="dashboard">
+        <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon><span class="nav-title">Home</span>
+      </a>
+      <!-- <mat-divider></mat-divider> -->
+      <a class="nav-link" mat-list-item routerLink="lists">
+        <mat-icon aria-hidden="false" aria-label="Example home icon">fact_check</mat-icon><span class="nav-title">Task
+          manager</span>
+      </a>
+      <a class="nav-link" mat-list-item routerLink="your-mentor">
+        <mat-icon aria-hidden="false" aria-label="Example home icon">people</mat-icon><span class="nav-title">Logs</span>
+      </a>
+      <a class="nav-link" mat-list-item routerLink="resources">
+        <mat-icon aria-hidden="false" aria-label="Example home icon">source</mat-icon><span
+          class="nav-title">Resources</span>
+      </a>
+      <a class="nav-link" mat-list-item routerLink="publications">
+        <mat-icon aria-hidden="false" aria-label="Example home icon">grading</mat-icon><span
+          class="nav-title">Publications</span>
+      </a>
+      <!-- <mat-divider></mat-divider>       -->
+      <a class="nav-link" mat-list-item routerLink="about">
+        <mat-icon aria-hidden="false" aria-label="Example home icon">info</mat-icon><span class="nav-title">About</span>
+      </a>
+      <!-- <mat-divider></mat-divider> -->
+      <a class="nav-link" mat-list-item routerLink="credits">
+        <mat-icon aria-hidden="false" aria-label="Example home icon">extension</mat-icon><span
+          class="nav-title">Credits</span>
+      </a>
+      <!-- <mat-divider></mat-divider> -->
+      <a class="nav-link" mat-list-item href="#">
+        <mat-icon aria-hidden="false" aria-label="Example home icon">account_circle</mat-icon><span
+          class="nav-title">Knight</span>
+        <mat-icon>arrow_drop_down</mat-icon>
+      </a>
+      <!-- <mat-divider></mat-divider> -->
+      <a class="nav-link" mat-list-item (click)="logout()" role="button">
+        <mat-icon aria-hidden="false" aria-label="Example home icon">logout</mat-icon><span
+          class="nav-title">Logout</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar style="background-color: #27d7a1;">
+      <!-- color="primary" -->
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span class="nav-title">Mentor mentee recommendation and management system</span>
+    </mat-toolbar>
+
+    <router-outlet>
+    </router-outlet>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
