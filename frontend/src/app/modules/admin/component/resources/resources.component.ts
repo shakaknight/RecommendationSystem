@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TaskService } from 'src/app/services/task.service';
 import { PopUpComponent } from '../pop-up/pop-up.component';
-import { Resource } from 'src/app/models/resource.model'
+import { Resource } from 'src/app/models/resource.model';
 @Component({
   selector: 'app-resources',
   templateUrl: './resources.component.html',

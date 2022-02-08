@@ -101,6 +101,10 @@ export class TaskService {
     })
   }
 
+  getRequests(){
+    return this.taskWebRequestService.get('getRequests');
+  }
+
 }
 
 

@@ -1,1 +1,25 @@
-<p>logs works!</p>
+<p class="title">Logs :</p>
+<div class="credits-card confirmed">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Mentor email</th>
+                <th>Mentor email</th>
+                <th>Status</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let request of Requests">
+                <td>{{request.mentee_email}}</td>
+                <td>{{request.mentor_email}}</td>
+                <td *ngIf="request.status == true">Accepted</td>
+                <td *ngIf="request.status == false">Pending</td>
+                <td (click)="onDelete(request._id)">
+                    <a><button mat-raised-button class="card-button"
+                            color="primary">DELETE</button></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -292,6 +292,20 @@ app.delete("/task/:id", (req, res) => {
 
 /* Mentor Mentee methods */
 
+// /**
+//  * GET /get-request
+//  * Purpose: Get all tasks in a specific list
+//  */
+app.get("/getRequests", (req, res) => {
+  // We want to return all tasks that belong to a specific list (specified by listId)
+  console.log("GET");
+  
+  Request.find().then((results) => {
+    res.send(results);
+  });
+});
+
+
 /**
  * POST /request-mentor
  * Purpose: Create a new request for mentor
@@ -343,8 +357,8 @@ app.delete("/delete-request/:id", (req, res) => {
 });
 
 /**
- * PATCH /lists/:listId/tasks/:taskId
- * Purpose: Update an existing task
+ * PATCH /acceptMentor
+ * Purpose: Update an the status of the request
  */
 
 app.patch("/acceptMentor", (req, res) => {
@@ -367,7 +381,7 @@ app.patch("/acceptMentor", (req, res) => {
 
 /**
  * PATCH /setMentor
- * Purpose: Update an existing task
+ * Purpose: Update the member part of the mentor and mentee in mongoDB
  */
 
 app.patch("/setMentor", (req, res) => {

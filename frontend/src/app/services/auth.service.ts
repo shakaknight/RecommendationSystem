@@ -50,8 +50,8 @@ export class AuthService {
   }
 
 
-  signup(email: string, password: string) {
-    return this.taskWebRequest.signup(email, password).pipe(
+  signup(email: string, password: string, user_type:string) {
+    return this.taskWebRequest.signup(email, password,user_type).pipe(
       shareReplay(),
       tap((res: HttpResponse<any>) => {
         // the auth tokens will be in the header of this response

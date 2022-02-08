@@ -30,7 +30,11 @@ import { AboutComponent } from './component/about/about.component';
 import { NewTaskComponent } from './component/new-task/new-task.component';
 import { PublicationsComponent } from './component/publications/publications.component';
 import { PopTwoComponent } from './component/pop-two/pop-two.component';
-
+import { HomeComponent } from './component/home/home.component';
+import { BarChartComponent } from './component/charts/bar-chart/bar-chart.component';
+import { LineChartComponent } from './component/charts/line-chart/line-chart.component';
+import { CardComponent } from './component/card/card.component';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -44,7 +48,11 @@ import { PopTwoComponent } from './component/pop-two/pop-two.component';
     AboutComponent,
     NewTaskComponent,
     PublicationsComponent,
-    PopTwoComponent
+    PopTwoComponent,
+    HomeComponent,
+    BarChartComponent,
+    LineChartComponent,
+    CardComponent
   ],
   imports: [
     CommonModule,
@@ -68,6 +76,7 @@ import { PopTwoComponent } from './component/pop-two/pop-two.component';
     NgbModule,
     FontAwesomeModule,
     LayoutModule,
+    ChartsModule
   ]
 })
 export class AdminModule { }
