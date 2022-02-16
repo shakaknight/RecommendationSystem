@@ -13,6 +13,11 @@ import { NotifyOneComponent } from '../notify-one/notify-one.component';
 interface mentor {  
     id: Number;  
     name: String;    
+    rating: Number;
+    experience: Number;
+    contact: String;
+    field: String;
+    wr: String;
 }  
 
 @Component({

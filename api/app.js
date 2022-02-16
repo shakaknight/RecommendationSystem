@@ -264,7 +264,6 @@ app.patch("/taskUpdate/:taskId", authenticate, (req, res) => {
   Task.findOneAndUpdate(
     {
       _id: req.params.taskId,
-      _userId: req.user_id,
     },
     {
       $set: req.body,

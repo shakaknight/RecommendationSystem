@@ -21,4 +21,14 @@ export class NotifierService {
       verticalPosition: 'top'
     })
   }
+    editTask(id:string) {
+    this.snackBar.open('Notification Message', 'Button Text',{
+      // duration: 2000,
+      data: {
+        id: id
+      },
+      horizontalPosition: 'center',
+      verticalPosition: 'top'
+    })
+  }
 }

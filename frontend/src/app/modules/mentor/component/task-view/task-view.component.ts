@@ -5,7 +5,6 @@ import { Task } from 'src/app/models/task.model';
 import { List } from 'src/app/models/list.model';
 import { MatDialog } from '@angular/material/dialog';
 import { NewTaskComponent } from '../new-task/new-task.component';
-import { EditTaskComponent } from '../edit-task/edit-task.component';
 
 @Component({
   selector: 'app-task-view',
@@ -44,16 +43,6 @@ popup() {
     // console.log(resulter);
     this.dialog.open(NewTaskComponent, {
       width: '500px', height: '35vh',
-      disableClose: true
-    });
-  }
-
-editpopup(task: Task) {
-    // console.log(resulter);
-    this.onTaskClick(task);
-    this.dialog.open(EditTaskComponent, {
-      width: '500px', height: '35vh',
-      data:task,
       disableClose: true
     });
   }

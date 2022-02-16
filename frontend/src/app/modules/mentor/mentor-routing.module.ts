@@ -6,7 +6,10 @@ import { CreditsComponent } from './component/credits/credits.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { MenteeComponent } from './component/mentee/mentee.component';
 import { NavComponent } from './component/nav/nav.component';
+import { PublicationsComponent } from './component/publications/publications.component';
 import { RequestComponent } from './component/request/request.component';
+import { ResourcesComponent } from './component/resources/resources.component';
+import { TaskViewComponent } from './component/task-view/task-view.component';
 
 const routes: Routes = [
   {path: '', component: NavComponent,
@@ -16,8 +19,9 @@ const routes: Routes = [
     {path: 'your-mentee', component: MenteeComponent},
     {path: 'credits', component: CreditsComponent},
     {path: 'about', component: AboutComponent},
-  //   // { path: 'new-task', component: NewTaskComponent },
-  //   // {path: 'lists', component: TaskViewComponent},
+    {path: 'publications', component: PublicationsComponent },
+    {path: 'resources', component: ResourcesComponent },
+    {path: 'lists', component: TaskViewComponent},
     {path: '',redirectTo:'/mentor/dashboard', pathMatch:'full'}
   ]
   },

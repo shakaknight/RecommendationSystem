@@ -35,6 +35,9 @@ import { BarChartComponent } from './component/charts/bar-chart/bar-chart.compon
 import { LineChartComponent } from './component/charts/line-chart/line-chart.component';
 import { CardComponent } from './component/card/card.component';
 import { ChartsModule } from 'ng2-charts';
+import { PieChartComponent } from './component/charts/pie-chart/pie-chart.component';
+import { RadarChartComponent } from './component/charts/radar-chart/radar-chart.component';
+import { SemiDonutComponent } from './component/charts/semi-donut/semi-donut.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +55,10 @@ import { ChartsModule } from 'ng2-charts';
     HomeComponent,
     BarChartComponent,
     LineChartComponent,
-    CardComponent
+    CardComponent,
+    PieChartComponent,
+    RadarChartComponent,
+    SemiDonutComponent
   ],
   imports: [
     CommonModule,

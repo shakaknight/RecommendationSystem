@@ -42,7 +42,7 @@ export class TaskViewComponent implements OnInit {
 popup() {
     // console.log(resulter);
     this.dialog.open(NewTaskComponent, {
-      width: '500px', height: '55vh',
+      width: '500px', height: '35vh',
       disableClose: true
     });
   }

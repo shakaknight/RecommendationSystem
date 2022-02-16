@@ -25,6 +25,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { MenteeComponent } from './component/mentee/mentee.component';
+import { PublicationsComponent } from './component/publications/publications.component';
+import { ResourcesComponent } from './component/resources/resources.component';
+import { TaskViewComponent } from './component/task-view/task-view.component';
+import { NewTaskComponent } from './component/new-task/new-task.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +37,11 @@ import { MenteeComponent } from './component/mentee/mentee.component';
   CreditsComponent,
   RequestComponent,
   DashboardComponent,
-  MenteeComponent],
+  MenteeComponent,
+  PublicationsComponent,
+  ResourcesComponent,
+  TaskViewComponent,
+  NewTaskComponent],
   imports: [
     CommonModule,
     MentorRoutingModule,

@@ -1,0 +1,26 @@
+<div class="chart-wrapper">
+    <canvas baseChart [data]="doughnutChartData" [options]="doughnutChartOptions" [legend]=""
+        [colors]="doughnutChartColors" [labels]="doughnutChartLabels" [chartType]="doughnutChartType">
+    </canvas>
+    <div style="margin-top:-50px">
+        <span style="font-size:40px;font-weight: 400;">587</span><br>
+        <span>Daily usage</span>
+    </div>
+    <hr style="height: 1px;">
+    <div style="display:flex;line-height:18px">
+        <div style="width:45%">
+            <div class="dot" style="background: rgb(255, 131, 51);"></div>
+            <span style="font-size:15px;font-weight:500">6.43%</span>
+            <p style="font-size:15px">New users growth</p>
+
+        </div>
+        <div style="width:10%">
+            <hr style="height: 1px;transform: rotate(90deg);">
+        </div>
+        <div style="width:45%">
+            <div class="dot" style="background: rgb(255, 131, 51);"></div>
+            <span style="font-size:15px;font-weight: 500;">9.43%</span>
+            <p style="font-size:15px">Conversion Rate</p>
+        </div>
+    </div>
+</div>

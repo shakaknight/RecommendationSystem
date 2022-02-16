@@ -24,6 +24,16 @@ export class TaskService {
     return this.taskWebRequestService.post(`task`, { title });
   }
 
+  editTask(id:string,title: string,completed:boolean) {
+    // We want to send a web request to create a task
+    return this.taskWebRequestService.patch(`taskUpdate/${id}`, {title: title,completed:false });
+  }
+
+  
+  deleteTask(id: string) {
+    return this.taskWebRequestService.delete(`task/${id}`);
+  }
+
   //task web request
    getTask() {
     return this.taskWebRequestService.get('task');
@@ -33,10 +43,6 @@ export class TaskService {
     return this.taskWebRequestService.post(`request-mentee`,{
       email: localStorage.getItem('user-email')
     });
-  }
-
-  deleteTask(id: string) {
-    return this.taskWebRequestService.delete(`task/${id}`);
   }
 
   getUserInfo(email_id:any){

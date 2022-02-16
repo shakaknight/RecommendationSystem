@@ -9,8 +9,22 @@ import traceback
 from scipy.sparse import csr_matrix
 from flask_cors import CORS
 
+md = pd.read_csv('mentor_dataset.csv')
+ratings = md[md['rating'].notnull()]['rating'].astype('int')
+experiences = md[md['experience'].notnull()]['experience'].astype('int')
+
+def weighted_rating(x):
+    C = experiences.mean()
+    # print(md,ratings,experiences,C)
+    m = ratings.mean()
+    # print(x)
+    v = x['rating']
+    R = x['experience']
+    return (v/(v+m) * R) + (m/(m+v) * C)
+
 app = Flask(__name__)
 CORS(app)
+
 @app.route('/search', methods=['POST'])
 def search():
     try:
@@ -43,6 +57,80 @@ def search():
 
 @app.route('/predict', methods=['POST'])
 def predict():  # put application's code here
+    # if True:
+    try:
+        md = pd.read_csv('mentor_dataset.csv')
+        ratings = md[md['rating'].notnull()]['rating'].astype('int')
+        experiences = md[md['experience'].notnull()]['experience'].astype('int')
+        C = experiences.mean()
+        # print(md,ratings,experiences,C)
+        m = ratings.mean()
+
+        qualified = md[(md['rating'] >= m) & (md['rating'].notnull()) & (md['experience'].notnull())][
+            ['mentorId','mentorName', 'rating', 'experience', 'contact', 'field']]
+        qualified['rating'] = qualified['rating'].astype('int')
+        qualified['experience'] = qualified['experience'].astype('int')
+
+        qualified['wr'] = qualified.apply(weighted_rating, axis=1)
+
+        qualified = qualified.sort_values('wr', ascending=False).head(250)
+
+        # print(qualified.head(15))
+        s = md.apply(lambda x: pd.Series(x['field']), axis=1).stack().reset_index(level=1, drop=True)
+        s.name = 'field'
+        gen_md = md.drop('field', axis=1).join(s)
+
+
+        json_ = request.json
+        print(json_[0])
+        query = pd.DataFrame(json_)
+        print(query)
+        int_features = []
+        for i in query["Profession"]:
+            int_features += [i]
+        # int_features = [x for x in request.form.values()]
+        field = int_features[0]
+        print(int_features)
+        print(field)
+
+        df = gen_md[gen_md['field'] == field]
+        ratings = df[df['rating'].notnull()]['rating'].astype('int')
+        experiences = df[df['experience'].notnull()]['experience'].astype('int')
+        C = experiences.mean()
+        m = ratings.mean()
+
+        qualified = df[(df['rating'] >= m) & (df['rating'].notnull()) & (df['experience'].notnull())][
+            ['mentorId','mentorName', 'rating', 'experience', 'contact','field']]
+        qualified['rating'] = qualified['rating'].astype('int')
+        qualified['experience'] = qualified['experience'].astype('int')
+
+        qualified['wr'] = qualified.apply(
+            lambda x: (x['rating'] / (x['rating'] + m) * x['experience']) + (m / (m + x['rating']) * C), axis=1)
+        qualified = qualified.sort_values('wr', ascending=False).head(250)
+        print(qualified)
+        # return {}
+        result = []
+        for i in range(0, len(qualified)):
+            temp = {'id':0,'name': '', 'rating': 0,'experience':0,'contact':'','field':'','wr':''}
+            # temp['id'] = i
+            temp['id'] = int(qualified['mentorId'].iloc[i])
+            temp['name'] = qualified['mentorName'].iloc[i]
+            temp['rating'] = int(qualified['rating'].iloc[i])
+            temp['experience'] = int(qualified['experience'].iloc[i])
+            temp['contact'] = qualified['contact'].iloc[i]
+            temp['field'] = str(qualified['field'].iloc[i])
+            temp['wr'] = str(qualified['wr'].iloc[i])
+            result.append(temp)
+        print(result)
+        return jsonify(result)
+    except:
+        return jsonify({'trace': traceback.format_exc()})
+# else:
+    #     print('Train the model first')
+    #     return ('No model here to use')
+
+@app.route('/predicter', methods=['POST'])
+def predicter():  # put application's code here
     if knn:
         try:
             mentors = pd.read_csv("mentors.csv")
@@ -85,6 +173,7 @@ def predict():  # put application's code here
                 df = pd.DataFrame(recommend_frame, index=range(1, n_mentors_to_reccomend + 1))
                 print(df)
                 result = []
+                print(type(df['Mentor']))
                 for i in range(1, len(df) + 1):
                     temp = {'id': 0, 'name': ''}
                     temp['id'] = i
