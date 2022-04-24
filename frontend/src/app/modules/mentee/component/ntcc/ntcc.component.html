@@ -1,0 +1,73 @@
+<p class="title">Your Mentor:
+    <button mat-raised-button class="card-button" color="primary">REFRESH</button>
+</p>
+<div class="credits-card confirmed">
+    <div layout="row" class="requested md-padding" *ngFor="let mentor of mentors" layout-wrap>
+        <mat-card class="example-card">
+            <mat-card-header>
+                <mat-card-title>{{ mentor.email }}</mat-card-title>
+                <mat-card-subtitle>{{ mentor.user_type }}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-actions>
+                <button mat-raised-button class="card-button" color="primary">CHAT</button>
+                <button mat-raised-button class="card-button" color="primary">GET DETAILS</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>
+<div class="content-body">
+<p class="title">Format for WPR:</p>
+    <table class="table table-content">
+        <thead>
+            <tr>
+                <th>Week No.</th>
+                <th>Weekly Progress Review Report</th>
+                <th>Date of Faculty Remarks</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="">
+                <select [(ngModel)]="selectedLevel" (change)="selected()">
+                    <option *ngFor="let data of datas" [ngValue]="data">{{data}}</option>
+                </select>
+                <td>
+                    <p><span>Target For The Week</span><br><input #TargetInput class="input table-input" placeholder="Enter target of this week."></p>
+                    <p><span>Achievements</span><br><input #AchievementsInput class="input table-input" placeholder="Enter Achievements."></p>
+                    <p><span>Future Work Plans</span><br><input #FutureInput class="input table-input" placeholder="Enter future work plans."></p>
+                    <p><span>Upload WPR</span><br><input #WPRInput class="input table-input" placeholder="Enter the link to WPR."></p>
+                </td>
+                <td><button mat-raised-button class="card-button" color="primary" (click) = "submit(TargetInput.value,AchievementsInput.value,FutureInput.value,WPRInput.value)">SUBMIT</button></td>
+            </tr>
+        </tbody>
+    </table>
+<p class="title">WPR's submitted :
+    <button mat-raised-button class="card-button" color="primary" (click)="viewWPR()">REFRESH</button>
+</p>
+    <div>
+        <table class="table table-striped table-content">
+            <thead>
+                <tr>
+                    <th>Week No.</th>
+                    <th>Weekly Progress Review Report</th>
+                    <th>Date of Uploading Weekly Progress Review Report</th>
+                    <th>Remarks</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="" *ngFor="let wpr of wprs">
+                    <td>{{wpr.number}}</td>
+                    <td>{{wpr.target}}</td>
+                    <td>{{wpr.submitDate}}</td>
+                    <td>{{wpr.remarks}}</td>
+                    <td>
+                        <mat-card-actions>
+                            <button mat-raised-button class="card-button" (click)="deleteWPR(wpr._id)"
+                                color="primary">DELETE</button>
+                        </mat-card-actions>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

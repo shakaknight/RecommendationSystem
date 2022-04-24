@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TaskService } from 'src/app/services/task.service';
 import { Request } from 'src/app/models/request.model';
 import { User } from 'src/app/models/user.model';
+import { Wpr } from 'src/app/models/wpr.model';
 
 @Component({
   selector: 'app-mentee',
@@ -17,6 +18,7 @@ export class MenteeComponent implements OnInit {
   mentees: User[];
   temps: String;
   temptwo : any;
+  wprs: Wpr[]=[];
   constructor(private taskService:TaskService,) { }
 
   ngOnInit(): void {
@@ -88,5 +90,19 @@ export class MenteeComponent implements OnInit {
     this.taskService.setMentor(email,localStorage.getItem('user-email')).subscribe((result)=>{
       console.log(result)
     })
+  }
+
+  viewWPR(email:String){
+    this.taskService.getWPRs(email).subscribe((result:Wpr[])=>{
+      console.log(result)
+      this.wprs = result;
+    })
+  }
+  changeStatus(_id:String,email:String,status:any){
+    console.log(_id,status);
+    this.taskService.changeStatus(_id,status).subscribe((result:any)=>{
+      console.log(result);
+      this.viewWPR(email);
+    });
   }
 }

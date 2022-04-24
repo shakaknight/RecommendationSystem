@@ -14,8 +14,8 @@
             <tr *ngFor="let resource of resources">
                 <td>{{resource.title}}</td>
                 <td>{{resource.pages}}</td>
-                <td><a href="{{resource.link}}"><button mat-raised-button class="card-button" color="primary">VIEW</button></a>
-                    <a href="{{resource.link}}"><button mat-raised-button class="card-button" color="primary">DOWNLOAD</button></a>
+                <td><a href="{{resource.link}}"><button mat-raised-button class="action-button card-button" color="primary">VIEW</button></a>
+                    <a href="{{resource.link}}"><button mat-raised-button class="action-button card-button" color="primary">DOWNLOAD</button></a>
                 </td>
             </tr>
         </tbody>

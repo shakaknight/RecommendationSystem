@@ -4,7 +4,7 @@ const { mongoose } = require("./db/mongoose");
 const bodyParser = require("body-parser");
 
 // Load in the mongoose models
-const { List, Request, Task, User,Resource, Publication } = require("./db/models");
+const { List, Request, Task, User,Resource, Publication, Wpr, Problem, Solution, Meeting } = require("./db/models");
 var cors = require("cors");
 const jwt = require("jsonwebtoken");
 const multer = require("multer");
@@ -542,6 +542,310 @@ app.get("/publications", (req, res) => {
     res.send(tasks);
   });
 });
+
+
+
+/* WPR methods */
+
+/**
+ * POST /submit-wpr
+ * Purpose: Submit a wpr
+ */
+
+app.post("/submit-wpr", (req, res) => {
+  console.log("wpr submit");
+  // console.log(req.body)
+  let newWPR = new Wpr({
+    emailId: req.body.email,
+    number: req.body.no,
+    target: req.body.target,
+    achievement: req.body.achieve,
+    future: req.body.future,
+    link: req.body.link,
+    submitDate: req.body.date,
+  });
+  // console.log(newRequest)
+  newWPR.save().then((newRes) => {
+    res.send(newRes);
+  });
+});
+
+// /**
+//  * GET /get-wpr/:email
+//  * Purpose: Get all publication
+//  */
+app.get("/get-wpr/:email", (req, res) => {
+  // We want to return all tasks that belong to a specific list (specified by listId)
+  console.log("GET-Publications");
+  Wpr.find({   
+    emailId: req.params.email,
+  }).then((result) => {
+    res.send(result);
+  });
+});
+
+
+
+/**
+ * PATCH /updateWPR
+ * Purpose: Update the WPR
+ */
+
+app.patch("/updateWPR", (req, res) => {
+  // We want to update an existing task (specified by taskId)
+  console.log("updateWPR");
+  console.log(req.body);
+  Wpr.findOneAndUpdate(
+  {
+    _id: req.body._id,
+  },
+  {
+    $set: req.body,
+  }
+  ).then((result) => {
+    res.send(result);
+    // { message: "Updated successfully." }
+  });
+
+});
+
+
+/**
+ * DELETE /delete-wpr
+ * Purpose: delete wpr
+ */
+
+app.delete("/delete-wpr/:id", (req, res) => {
+  
+  // We want to delete the specified publication
+  console.log("delete-publication");
+  // Request.findByIdAndRemove
+  console.log(req.params.id);
+  Wpr.findByIdAndRemove({
+    _id: req.params.id,
+  }).then((removedWPR) => {
+    console.log(removedWPR);
+    res.send(removedWPR);
+  });
+
+});
+
+
+
+/* Problem statement methods */
+
+/**
+ * POST /submit-problem
+ * Purpose: Submit a problem statement
+ */
+
+app.post("/submit-problem", (req, res) => {
+  console.log("problem submit");
+  // console.log(req.body)
+  let newProblem = new Problem({
+    emailId: req.body.email,
+    problem: req.body.problem,
+    fields: req.body.fields,
+    submitDate: req.body.date,
+  });
+  // console.log(newRequest)
+  newProblem.save().then((newRes) => {
+    res.send(newRes);
+  });
+});
+
+// /**
+//  * GET /get-problem/:email
+//  * Purpose: Get particular problem statement
+//  */
+app.get("/get-problem/:email", (req, res) => {
+  // We want to return all tasks that belong to a specific list (specified by listId)
+  console.log("GET-Problem");
+  Problem.find({   
+    emailId: req.params.email,
+  }).then((result) => {
+    res.send(result);
+  });
+});
+
+// /**
+//  * GET /get-problems
+//  * Purpose: Get all problem statement
+//  */
+app.get("/get-problems", (req, res) => {
+  // We want to return all tasks that belong to a specific list (specified by listId)
+  console.log("GET-Problems");
+  Problem.find().then((result) => {
+    res.send(result);
+  });
+});
+
+
+/**
+ * DELETE /delete-problem
+ * Purpose: delete problem
+ */
+
+app.delete("/delete-problem/:id", (req, res) => {
+  
+  // We want to delete the specified publication
+  console.log("delete-problem");
+  // Request.findByIdAndRemove
+  console.log(req.params.id);
+  Problem.findByIdAndRemove({
+    _id: req.params.id,
+  }).then((removedProblem) => {
+    res.send(removedProblem);
+  });
+
+});
+
+
+/* Solution statement methods */
+
+/**
+ * POST /submit-solution
+ * Purpose: Submit a solution to solution
+ */
+
+app.post("/submit-solution", (req, res) => {
+  console.log("solution submit");
+  // console.log(req.body)0
+  let newSolution = new Solution({
+    _problemId: req.body.id,
+    emailId: req.body.email,
+    target: req.body.target,
+    future: req.body.future,
+    upload: req.body.upload,
+    submitDate: req.body.date,
+  });
+  // console.log(newRequest)
+  newSolution.save().then((newRes) => {
+    res.send(newRes);
+  });
+});
+
+// /**
+//  * GET /get-solution/:id
+//  * Purpose: Get particular solution for a problem
+//  */
+app.get("/get-solution/:id", (req, res) => {
+  // We want to return all tasks that belong to a specific list (specified by listId)
+  console.log("GET-Problem");
+  Solution.find({   
+    _problemId: req.params.id,
+  }).then((result) => {
+    res.send(result);
+  });
+});
+
+//  * GET /get-solution/:email
+//  * Purpose: Get particular solution for a user
+//  */
+app.get("/get-solutions/email", (req, res) => {
+  // We want to return all tasks that belong to a specific list (specified by listId)
+  console.log("GET-Problem");
+  Solution.find({   
+    emailId: req.params.email,
+  }).then((result) => {
+    res.send(result);
+  });
+});
+
+/**
+ * DELETE /delete-problem
+ * Purpose: delete problem
+ */
+
+app.delete("/delete-solution/:id", (req, res) => {
+  
+  // We want to delete the specified publication
+  console.log("delete-solution");
+  // Request.findByIdAndRemove
+  console.log(req.params.id);
+  Solution.findByIdAndRemove({
+    _id: req.params.id,
+  }).then((removedSolution) => {
+    res.send(removedSolution);
+  });
+
+});
+
+
+
+/* Meeting methods */
+
+/**
+ * POST /submit-meeting
+ * Purpose: Submit a meeting
+ */
+
+app.post("/submit-meeting", (req, res) => {
+  console.log("meeting submit");
+  // console.log(req.body)0
+  let newMeeting = new Meeting({
+    mentorId: req.body.mentorEmail,
+    menteeId: req.body.menteeEmail,
+    link: req.body.link,
+    time: req.body.time,
+    submitDate: req.body.date
+  });
+  // console.log(newRequest)
+  newMeeting.save().then((newRes) => {
+    res.send(newRes);
+  });
+});
+
+// /**
+//  * GET /get-meeting/:id
+//  * Purpose: Get particular meeting
+//  */
+app.get("/get-meeting/:id", (req, res) => {
+  // We want to return all tasks that belong to a specific list (specified by listId)
+  console.log("GET-meeting");
+    console.log(req.params.id)
+
+  Meeting.find({   
+    mentorId: req.params.id,
+  }).then((result) => {
+    res.send(result);
+  });
+});
+
+// /**
+//  * GET /get-meeting-mentee/:id
+//  * Purpose: Get particular meeting
+//  */
+app.get("/get-meeting-mentee/:id", (req, res) => {
+  // We want to return all tasks that belong to a specific list (specified by listId)
+  console.log("GET-meeting-mentee");
+  console.log(req.params.id)
+  Meeting.find({   
+    menteeId: req.params.id,
+  }).then((result) => {
+    res.send(result);
+  });
+});
+
+/**
+ * DELETE /delete-meeting
+ * Purpose: delete meeting
+ */
+
+app.delete("/delete-meeting/:id", (req, res) => {
+  
+  // We want to delete the specified publication
+  console.log("delete-meeting");
+  // Request.findByIdAndRemove
+  console.log(req.params.id);
+  Meeting.findByIdAndRemove({
+    _id: req.params.id,
+  }).then((removedSolution) => {
+    res.send(removedSolution);
+  });
+
+});
+
 
 /* END MIDDLEWARE  */
 

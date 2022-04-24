@@ -1,0 +1,27 @@
+<div class="centered-content">
+    <div class="modal-box">
+        <h1 class="title">
+            Create meeting:
+        </h1>
+        <input matInput class="date-input" [matDatepicker]="picker" [(ngModel)]="dateOfEvent">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <br><br>
+        <input #timeInput class="input has-background-light is-medium" type="text"
+            placeholder="Enter time for the meeting...">
+        <br><br>
+        <select [(ngModel)]="selectedLevel" class="select" (change)="selected()">
+            <option *ngFor="let data of mentees_tmp" [ngValue]="data">{{data}}</option>
+        </select>
+        <br><br>
+        <input #linkInput class="input has-background-light is-medium" type="text" placeholder="Enter link for the meeting...">
+        <br><br>
+        <div class="buttons is-right">
+            <button mat-raised-button class="action-button card-button button is-primary has-text-white is-medium"
+(click)="submit(linkInput.value,timeInput.value,dateOfEvent)">Create</button>
+            <button mat-raised-button class="action-button card-button button is-medium" (click)="close()">Cancel</button>
+        </div>
+    </div>
+    <div>
+    </div>
+</div>

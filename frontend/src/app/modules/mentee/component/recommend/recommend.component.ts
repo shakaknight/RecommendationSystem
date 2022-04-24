@@ -77,7 +77,7 @@ results: mentor[];
   popup(resulter:any) {
     console.log(resulter);
     this.dialog.open(NotifyOneComponent, {
-      width: '500px', height: '55vh',
+      width: '525px', height: '60vh',
       data: resulter,
       disableClose: true
     });

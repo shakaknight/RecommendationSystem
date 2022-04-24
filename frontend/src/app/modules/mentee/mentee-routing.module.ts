@@ -7,9 +7,13 @@ import { CreditsComponent } from './component/credits/credits.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { EditListComponent } from './component/edit-list/edit-list.component';
 import { EditTaskComponent } from './component/edit-task/edit-task.component';
+import { HomeComponent } from './component/home/home.component';
+import { MeetingComponent } from './component/meeting/meeting.component';
 import { MentorComponent } from './component/mentor/mentor.component';
 import { NewListComponent } from './component/new-list/new-list.component';
 import { NewTaskComponent } from './component/new-task/new-task.component';
+import { NtccComponent } from './component/ntcc/ntcc.component';
+import { ProblemComponent } from './component/problem/problem.component';
 import { PublicationsComponent } from './component/publications/publications.component';
 import { RecommendComponent } from './component/recommend/recommend.component';
 import { ResourcesComponent } from './component/resources/resources.component';
@@ -19,7 +23,7 @@ import { TaskViewComponent } from './component/task-view/task-view.component';
 const routes: Routes = [
   {path: '', component: NavComponent,
   children: [
-    {path: 'dashboard', component: DashboardComponent},
+    {path: 'dashboard', component: HomeComponent},
     {path: 'recommend', component: RecommendComponent},
     {path: 'search', component: SearchComponent},
     {path: 'credits', component: CreditsComponent},
@@ -29,6 +33,9 @@ const routes: Routes = [
     {path: 'publications', component: PublicationsComponent },
     {path: 'resources', component: ResourcesComponent },
     {path: 'lists', component: TaskViewComponent},
+    {path: 'ntcc', component: NtccComponent},
+    {path: 'meetings', component: MeetingComponent},
+    {path: 'problem', component: ProblemComponent},
     {path: '',redirectTo:'/mentee/dashboard', pathMatch:'full'}
   ]
   },

@@ -1,0 +1,28 @@
+<p class="title">Meetings: 
+    <button mat-raised-button class="card-button" (click)="new_meetings()" color="primary">+ New Meeting</button>
+</p>
+
+<div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Mentee Email</th>
+                <th>Meeting Date</th>
+                <th>Time</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let meeting of meetings">
+                <td>{{meeting.menteeId}}</td>
+                <td>{{meeting.submitDate}}</td>
+                <td>{{meeting.time}}</td>
+                <td>
+                    <a href="{{meeting.link}}"> <button mat-raised-button class="card-button"
+                            color="primary">JOIN</button></a>
+            <button mat-raised-button class="card-button" color="primary" (click)="deleteMeet(meeting._id)">DELETE</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

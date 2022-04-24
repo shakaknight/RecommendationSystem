@@ -26,10 +26,41 @@
                 <mat-card-subtitle>{{ mentee.user_type }}</mat-card-subtitle>
             </mat-card-header>
             <mat-card-actions>
-                <button mat-raised-button class="card-button" (click)="accept(mentee.email)"
-                    color="primary">REQUEST</button>
+                <!-- <button mat-raised-button class="card-button" (click)="accept(mentee.email)"
+                    color="primary">REQUEST</button> -->
+                <button mat-raised-button class="card-button" (click)="viewWPR(mentee.email)" color="primary">VIEW</button>
                 <button mat-raised-button class="card-button" (click)="delete(mentee.email)" color="primary">REJECT</button>
             </mat-card-actions>
         </mat-card>
     </div>
+</div>
+<div>
+    <p class="title">WPR submitted :</p>
+</div>
+<div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Week No.</th>
+                    <th>Weekly Progress Review Report</th>
+                    <th>Date of Uploading Weekly Progress Review Report</th>
+                    <th>Remarks</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="" *ngFor="let wpr of wprs">
+                    <td>{{wpr.number}}</td>
+                    <td>{{wpr.target}}</td>
+                    <td>{{wpr.submitDate}}</td>
+                    <td>{{wpr.remarks}}</td>
+                    <td>
+                        <mat-card-actions>
+                            <button mat-raised-button class="card-button" (click)="changeStatus(wpr._id,wpr.emailId,'OK')" color="primary">ACCEPT</button>
+                            <button mat-raised-button class="card-button" (click)="changeStatus(wpr._id,wpr.emailId,'Redo')" color="primary">DENY</button>
+                        </mat-card-actions>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
 </div>

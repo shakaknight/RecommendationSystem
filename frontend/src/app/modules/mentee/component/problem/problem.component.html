@@ -1,0 +1,31 @@
+<div class="base">
+    <p class="title">Problems :</p>
+    <div>
+        <table class="table table-striped table-content">
+            <thead>
+                <tr>
+                    <th>Problem statment</th>
+                    <th>Fields</th>
+                    <th>Submit Date</th>
+                    <th>Email ID</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="" *ngFor="let problem of problems">
+                    <td>{{problem.problem}}</td>
+                    <td>{{problem.fields}}</td>
+                    <td>{{problem.submitDate}}</td>
+                    <td>{{problem.emailId}}</td>
+                    <td>
+                        <mat-card-actions>
+                            <!-- (click)="deleteProblem(problem._id)" -->
+                            <button mat-raised-button class="card-button" 
+                                color="primary" (click)="popup(problem._id,problem.emailId)"><mat-icon class="button-color plus-css" aria-hidden="false" aria-label="Example home icon">add</mat-icon></button>
+                        </mat-card-actions>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

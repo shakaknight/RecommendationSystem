@@ -111,6 +111,129 @@ export class TaskService {
     return this.taskWebRequestService.get('getRequests');
   }
 
+
+  // WPR 
+  submitWPR(email:String,no: Number,target:String, achieve:String,future:String,link:String){
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; 
+    var yyyy = today.getFullYear();
+    console.log(dd,mm,yyyy)
+    // if(dd<10 && mm ) 
+    // {
+    //     var ddd='0'+dd;
+    // } 
+
+    // if(mm<10) 
+    // {
+    //     var mmm='0'+mm;
+    // } 
+    var date = dd+'-' +mm+'-'+yyyy;
+    console.log(date)
+    return this.taskWebRequestService.post(`submit-wpr`,{
+      email: email,
+      no: no,
+      target: target,
+      achieve: achieve,
+      future: future,
+      link: link,
+      date: date
+    })
+  }
+  getWPRs(email:String){
+    return this.taskWebRequestService.get(`get-wpr/${email}`);
+  }
+
+  changeStatus(_id:String,status:String){
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; 
+    var yyyy = today.getFullYear();
+    console.log(dd,mm,yyyy)
+    var date = dd+'-' +mm+'-'+yyyy;
+    console.log(date)
+    return this.taskWebRequestService.patch(`updateWPR`,{
+      _id:_id,
+      reviewDate:date,
+      remarks:status,
+    })
+  }
+
+  deleteWPR(id:any) {
+    return this.taskWebRequestService.delete(`delete-wpr/${id}`);
+  }
+
+  submitProblem(email:String, problem:String,fields: String){
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; 
+    var yyyy = today.getFullYear();
+    console.log(dd,mm,yyyy)
+    var date = dd+'-' +mm+'-'+yyyy;
+    console.log(date)
+    return this.taskWebRequestService.post(`submit-problem`,{
+       email: email,
+       problem: problem,
+       fields: fields,
+       date: date
+    })
+  }
+
+  getProblems(id:String){
+    return this.taskWebRequestService.get(`get-problem/${id}`);
+  }
+
+  getAllProblems(){
+    return this.taskWebRequestService.get('get-problems');
+  }
+
+  deleteProblem(id:any) {
+    return this.taskWebRequestService.delete(`delete-problem/${id}`);
+  }
+
+  getSolutions(id:String){
+    return this.taskWebRequestService.get(`get-solution/${id}`);
+  }
+
+  submitSolution(id:String,email:String, target:String,future:String,upload:String){
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; 
+    var yyyy = today.getFullYear();
+    console.log(dd,mm,yyyy)
+    var date = dd+'-' +mm+'-'+yyyy;
+    console.log(date)
+    return this.taskWebRequestService.post(`submit-solution`,{
+       id:id,
+       email: email,
+       target: target,
+       future: future,
+       upload: upload,
+       date: date
+    })
+  }
+
+  submitMeeting(mentorId:String,menteeId:String, link:String,date:String,time:String){
+    return this.taskWebRequestService.post(`submit-meeting`,{
+    mentorEmail: mentorId,
+    menteeEmail: menteeId,
+    link: link,
+    time: time,
+    date: date
+    })
+  }
+
+  getMeeting(id:String){
+    return this.taskWebRequestService.get(`get-meeting/${id}`);
+  }
+
+  getMeetingMentee(id:String){
+    return this.taskWebRequestService.get(`get-meeting-mentee/${id}`);
+  }
+
+  deleteMeeting(id:any) {
+    return this.taskWebRequestService.delete(`delete-meeting/${id}`);
+  }
 }
 
 

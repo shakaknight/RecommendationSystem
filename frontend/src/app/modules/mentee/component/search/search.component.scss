@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
 .recommend-css {
   margin: 30px;
 }
@@ -5,8 +7,52 @@
   width: 200px;
   margin: 30px 14px 30px;
 }
-// margin: 30px 2% 0% 38%;
+
+.example-chip-list {
+  width: 100%;
+}
+
+.recommend-css {
+  margin: 30px;
+}
+
+.select-css {
+  border: 3px solid#27d7a1;
+  font-family: "Poppins", sans-serif;
+  border-radius: 5px;
+  height: 45px;
+  width: 200px;
+  align-items: center;
+  margin: 3% 4% 10%;
+}
+
+.option-css {
+  font-size: 20px;
+}
+
+.button-css {
+  border: 0px;
+  border-radius: 10px;
+  background-color: #27d7a1;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.plus-css {
+  font-size: 25px;
+  font-weight: bolder;
+}
+
 @media only screen and (min-width: 600px) {
+  .select-css {
+    // height: 45px;
+    width: 300px;
+    // align-items: center;
+    margin: 3% 3% 3% 30%;
+  }
   .example-form-field {
     margin: 30px 2% 0% 38%;
   }

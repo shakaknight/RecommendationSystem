@@ -29,6 +29,20 @@ import { PublicationsComponent } from './component/publications/publications.com
 import { ResourcesComponent } from './component/resources/resources.component';
 import { TaskViewComponent } from './component/task-view/task-view.component';
 import { NewTaskComponent } from './component/new-task/new-task.component';
+import { CardComponent } from './component/card/card.component';
+import { PieChartComponent } from './component/charts/pie-chart/pie-chart.component';
+import { RadarChartComponent } from './component/charts/radar-chart/radar-chart.component';
+import { SemiDonutComponent } from './component/charts/semi-donut/semi-donut.component';
+import { BarChartComponent } from './component/charts/bar-chart/bar-chart.component';
+import { LineChartComponent } from './component/charts/line-chart/line-chart.component';
+import { ChartsModule } from 'ng2-charts';
+import { HomeComponent } from './component/home/home.component';
+import { ProblemComponent } from './component/problem/problem.component';
+import { PopOneComponent } from './component/pop-one/pop-one.component';
+import { MeetingComponent } from './component/meeting/meeting.component';
+import { NewMeetingComponent } from './component/new-meeting/new-meeting.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -41,7 +55,18 @@ import { NewTaskComponent } from './component/new-task/new-task.component';
   PublicationsComponent,
   ResourcesComponent,
   TaskViewComponent,
-  NewTaskComponent],
+  NewTaskComponent,
+  CardComponent,
+  PieChartComponent,
+  RadarChartComponent,
+  SemiDonutComponent,
+  BarChartComponent,
+  LineChartComponent,
+  HomeComponent,
+  ProblemComponent,
+  PopOneComponent,
+  MeetingComponent,
+  NewMeetingComponent],
   imports: [
     CommonModule,
     MentorRoutingModule,
@@ -67,7 +92,10 @@ import { NewTaskComponent } from './component/new-task/new-task.component';
     MatDialogModule,
     MatSnackBarModule,
     NgbModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    ChartsModule,
+    MatDatepickerModule,
+    MatNativeDateModule 
   ]
 })
 export class MentorModule { }

@@ -13,11 +13,12 @@ email: String="mentor@gmail.com";
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, public dialog: MatDialog,private notifierService:NotifierService,private taskService:TaskService) { }
 
   ngOnInit(): void {
-    console.log(this.data);
+    console.log(this.data['contact']);
   }
   request(){
-    this.taskService.requestMentor(this.email,localStorage.getItem('user-email')).subscribe((result:any) => {
+    this.taskService.requestMentor(this.data['contact'],localStorage.getItem('user-email')).subscribe((result:any) => {
       console.log(result)
+      this.close();
     });
   }
  close() {

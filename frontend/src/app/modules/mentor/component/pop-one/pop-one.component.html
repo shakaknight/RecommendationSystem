@@ -1,0 +1,34 @@
+<div>
+        <p class="title">Submitted solution :<button mat-raised-button class="button-color notifier-button" (click)="close()">CLOSE</button></p><div class="button-css">
+        <div>
+            <table class="table table-striped table-content">
+                <thead>
+                    <tr>
+                        <th>Email</th>
+                        <th>Target</th>
+                        <th>Future</th>
+                        <th>upload</th>
+                        <th>Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="" *ngFor="let solution of solutions">
+                        <td>{{solution.emailId}}</td>
+                        <td>{{solution.target}}</td>
+                        <td>{{solution.future}}</td>
+                        <td><a>{{solution.upload}}</a></td>
+                        <td>{{solution.submitDate}}</td>
+                        <td>
+                            <mat-card-actions>
+                                <button mat-raised-button class="card-button action-button" (click)="accept(solution.emailId)"
+                                    color="primary">ACCEPT</button>
+                                <button mat-raised-button class="card-button action-button"
+                                    color="primary">REJECT</button>
+                            </mat-card-actions>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+</div>

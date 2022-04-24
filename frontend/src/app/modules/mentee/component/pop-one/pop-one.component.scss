@@ -1,0 +1,35 @@
+.notifier-button {
+  // margin: 5% 18% 0%;
+}
+.user-icon {
+  height: 200px;
+  width: 200px;
+  border-radius: 100px;
+  margin: 0% 23%;
+}
+
+.input {
+  width: 100%;
+  line-height: 3;
+}
+
+.button-color {
+  margin: 0px 70px;
+}
+.title {
+  font-size: 15px;
+  font-weight: 400;
+  // margin: 50px;
+}
+.title-div {
+  margin: 30px 30px;
+}
+
+@media only screen and (min-width: 600px) {
+  .button-css {
+    display: flex;
+  }
+  // .button-color {
+  //   margin: 25px 0px;
+  // }
+}

@@ -1,0 +1,26 @@
+<p class="title">Meetings:
+</p>
+
+<div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Mentor Email</th>
+                <th>Meeting Date</th>
+                <th>Time</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let meeting of meetings">
+                <td>{{meeting.mentorId}}</td>
+                <td>{{meeting.submitDate}}</td>
+                <td>{{meeting.time}}</td>
+                <td>
+                    <a href="{{meeting.link}}"> <button mat-raised-button class="card-button"
+                            color="primary">JOIN</button></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

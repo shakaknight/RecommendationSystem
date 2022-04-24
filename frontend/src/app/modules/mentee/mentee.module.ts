@@ -29,6 +29,17 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MentorComponent } from './component/mentor/mentor.component';
 import { ResourcesComponent } from './component/resources/resources.component';
 import { PublicationsComponent } from './component/publications/publications.component';
+import { NtccComponent } from './component/ntcc/ntcc.component';
+import { ChartsModule } from 'ng2-charts';
+import { CardComponent } from './component/card/card.component';
+import { LineChartComponent } from './component/charts/line-chart/line-chart.component';
+import { BarChartComponent } from './component/charts/bar-chart/bar-chart.component';
+import { SemiDonutComponent } from './component/charts/semi-donut/semi-donut.component';
+import { PieChartComponent } from './component/charts/pie-chart/pie-chart.component';
+import { HomeComponent } from './component/home/home.component';
+import { ProblemComponent } from './component/problem/problem.component';
+import { PopOneComponent } from './component/pop-one/pop-one.component';
+import { MeetingComponent } from './component/meeting/meeting.component';
 // import { AppRoutingModule } from 'src/app/app-routing.module';
 
 
@@ -45,6 +56,16 @@ import { PublicationsComponent } from './component/publications/publications.com
     MentorComponent,
     ResourcesComponent,
     PublicationsComponent,
+    NtccComponent,
+    CardComponent,
+    LineChartComponent,
+    BarChartComponent,
+    SemiDonutComponent,
+    PieChartComponent,
+    HomeComponent,
+    ProblemComponent,
+    PopOneComponent,
+    MeetingComponent,
   ],
   imports: [
     CommonModule,
@@ -69,6 +90,7 @@ import { PublicationsComponent } from './component/publications/publications.com
     MatSnackBarModule,
     NgbModule,
     FontAwesomeModule,
+    ChartsModule
   ]
 })
 export class MenteeModule { }

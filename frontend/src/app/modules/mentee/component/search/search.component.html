@@ -12,18 +12,26 @@
 </div>
 <div>
     <table class="table table-striped">
-        <thead>
+         <thead>
             <tr>
                 <th>ID</th>
                 <th>Name</th>
+                <th>Rating</th>
+                <th>Experience</th>
+                <th>Contact</th>
                 <th>Field</th>
+                <th>Info</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let result of results">
                 <td>{{ result.id }}</td>
                 <td>{{ result.name }}</td>
+                <td>{{ result.rating }}</td>
+                <td>{{ result.experience }}</td>
+                <td>{{ result.contact }}</td>
                 <td>{{ result.field }}</td>
+                <td><button mat-raised-button class="button-css" (click) = "popup(result)"><mat-icon class="button-color plus-css" aria-hidden="false" aria-label="Example home icon">add</mat-icon></button></td>
             </tr>
         </tbody>
     </table>

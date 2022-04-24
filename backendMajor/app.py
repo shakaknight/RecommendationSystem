@@ -37,20 +37,23 @@ def search():
             name += [i]
         name = name[0]
         print(name)
-        mentors = pd.read_csv("mentors.csv")
+        mentors = pd.read_csv("mentor_dataset.csv")
         for i in range(mentors.shape[0]):
             if (mentors.mentorName[i]).lower() == name.lower():
                 id = mentors.mentorId[i]
                 name = mentors.mentorName[i]
                 fields = mentors.field[i]
                 field = fields.replace('|', ', ')
+                rating = mentors.rating[i]
+                experience = mentors.experience[i]
+                contact = mentors.contact[i]
                 break
-        print(id, name, field)
+        print(id, name, field,rating,experience,contact)
         print(type(id))
-        result = {'id': 0, 'name': '', 'field': ''}
-        result['id'] = int(id)
-        result['name'] = name
-        result['field'] = field
+        result = {'id': int(id), 'name': name, 'field': field,'rating':int(rating),'experience':int(experience),'contact':contact}
+        # result['id'] = int(id)
+        # result['name'] = name
+        # result['field'] = field
         return jsonify([result])
     except:
         return jsonify({'trace': traceback.format_exc()})

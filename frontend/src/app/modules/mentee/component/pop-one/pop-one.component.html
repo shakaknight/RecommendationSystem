@@ -1,0 +1,16 @@
+<div>
+    <!-- <div>
+        <img class="user-icon" src="../../../../../assets/usericon.jpg">
+    </div> -->
+    <div>
+        <p><span class="title">Target to achieve from research :</span><br><textarea #TargetInput class="input table-input"
+                placeholder=""></textarea></p>
+        <p><span class="title">Future Working Plans :</span><br><textarea #FutureInput class="input table-input"
+                placeholder=""></textarea></p>
+        <p><span class="title">Upload your current research :</span><br><textarea #UploadInput class="input table-input" placeholder=""></textarea></p>
+    </div>
+    <div class="button-css">
+        <button mat-raised-button class="button-color notifier-button" (click)="submit(TargetInput.value,FutureInput.value,UploadInput.value)">SUBMIT</button>
+        <button mat-raised-button class="button-color notifier-button" (click)="close()">CLOSE</button>
+    </div>
+</div>

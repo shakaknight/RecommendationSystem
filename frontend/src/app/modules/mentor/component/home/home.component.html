@@ -1,0 +1,28 @@
+<div class="grid-container">
+
+    <mat-grid-list cols="{{ ( cardLayout | async )?.columns }}" rowHeight="200px">
+        <mat-grid-tile [colspan]="( cardLayout | async )?.chart.cols" [rowspan]="( cardLayout | async )?.chart.rows">
+            <app-card title="Overview">
+                <app-line-chart></app-line-chart>
+            </app-card>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="( cardLayout | async )?.miniCard.cols"
+            [rowspan]="( cardLayout | async )?.miniCard.rows">
+            <app-card title="Devices">
+                <app-pie-chart></app-pie-chart>
+            </app-card>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="( cardLayout | async )?.miniCard.cols"
+            [rowspan]="( cardLayout | async )?.miniCard.rows">
+            <app-card title="Demographics">
+                <app-bar-chart></app-bar-chart>
+            </app-card>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="( cardLayout | async )?.miniCard.cols"
+            [rowspan]="( cardLayout | async )?.miniCard.rows">
+            <app-card title="New Users">
+                <app-semi-donut></app-semi-donut>
+            </app-card>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>
