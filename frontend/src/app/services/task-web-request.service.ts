@@ -10,8 +10,8 @@ export class TaskWebRequestService {
   readonly ROOT_URL;
 
   constructor(private http: HttpClient) {
-    // this.ROOT_URL = 'http://localhost:3000';
-    this.ROOT_URL = 'http://192.168.1.49:3000';
+    this.ROOT_URL = 'http://localhost:3000';
+    // this.ROOT_URL = 'http://192.168.1.49:3000';
   }
 
   get(uri: string) {
