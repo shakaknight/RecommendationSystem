@@ -32,7 +32,7 @@ publications: Publication[];
   popup() {
       // console.log(resulter);
       this.dialog.open(PopTwoComponent, {
-        width: '500px', height: '55vh',
+        width: '500px', height: '30vh',
         disableClose: true
       });
   }

@@ -1,7 +1,7 @@
 <div class="centered-content">
     <div class="modal-box">
         <h1 class="title">
-            Create a Publication:
+            Create a conference:
         </h1>
         <input #taskTitleInput class="input has-background-light is-medium" type="text" placeholder="Enter title...">
         <br><br>
@@ -9,9 +9,9 @@
             placeholder="Enter link for the resource...">
         <br><br>
         <div class="buttons is-right">
-            <button class="button is-primary has-text-white is-medium"
+            <button mat-raised-button class="card-button button is-primary has-text-white is-medium"
                 (click)="createPublication(taskTitleInput.value,taskLinkInput.value)">Create</button>
-            <button class="button is-medium" (click)="close()">Cancel</button>
+            <button mat-raised-button class="button is-medium card-button" (click)="close()">Cancel</button>
         </div>
     </div>
     <div>

@@ -31,7 +31,7 @@ resources: Resource[];
   popup() {
       // console.log(resulter);
       this.dialog.open(PopUpComponent, {
-        width: '500px', height: '55vh',
+        width: '500px', height: '35vh',
         disableClose: true
       });
   }
