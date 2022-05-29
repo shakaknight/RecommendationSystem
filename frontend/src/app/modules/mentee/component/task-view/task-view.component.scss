@@ -162,8 +162,9 @@
 @media only screen and (min-width: 600px) {
   .new-task {
     display: inline-flex;
-    margin: 40px 330px 40px;
-    // justify-content: center;
+    //margin: 40px 330px 40px;
+    margin: 10% 25% 10%;
+        // justify-content: center;
     // text-align: center;
   }
 
@@ -178,3 +179,12 @@
     max-width: 1400px;
   }
 }
+
+// @media only screen and (max-width: 500px) {
+//   .new-task {
+//     display: block;
+//     margin: 40px 330px 40px;
+//     // justify-content: center;
+//     // text-align: center;
+//   }
+// }

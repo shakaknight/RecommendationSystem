@@ -124,6 +124,7 @@ def predict():  # put application's code here
             temp['field'] = str(qualified['field'].iloc[i])
             temp['wr'] = str(qualified['wr'].iloc[i])
             result.append(temp)
+        result = result[:5]
         print(result)
         return jsonify(result)
     except:
